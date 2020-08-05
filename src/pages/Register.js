@@ -45,10 +45,15 @@ class Register extends React.Component {
             // {header: {x-api-key:<api_key>}}
             //https://drv4zh6s22.execute-api.us-east-1.amazonaws.com/sample/detect
             // let res = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
-            let res = await axios.get("https://drv4zh6s22.execute-api.us-east-1.amazonaws.com/sample/detect", {params:{
+            //let res = await axios.get("https://drv4zh6s22.execute-api.us-east-1.amazonaws.com/sample/detect", {params:{
+            //    email_address: values.email,
+            //    ip_address: this.state.ip
+            //}});
+            let res = await axios.get("https://jw0z2s92uk.execute-api.us-east-2.amazonaws.com/prod/frauddetector", {params:{
                 email_address: values.email,
-                ip_address: this.state.ip
-            }});
+                ip_address: this.state.ip,
+                ssn: this.state.ssn
+            }});            
             this.setState({loading: false, fdoutcome: res.data.body.outcomes[0], fdscore: res.data.body.score }, () => {
                 this.openNotificationWithIcon(values);
             });
