@@ -137,7 +137,16 @@ class Register extends React.Component {
                           >
                             <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email address"/>
                           </Form.Item>
-        
+
+                          <Form.Item
+                            // label="SSN"
+                            name="ssn"                    
+                            rules={[{ required: true, message: 'Please input your SSN!' }]}
+                            help="Digits, and - only "
+                          >
+                            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="SSN" />
+                          </Form.Item>
+
                           <Form.Item >
                             <Button type="primary" htmlType="submit" className="login-form-button" loading={this.state.loading}>
                               REGISTER
