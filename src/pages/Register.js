@@ -52,7 +52,7 @@ class Register extends React.Component {
             let res = await axios.get("https://jw0z2s92uk.execute-api.us-east-2.amazonaws.com/prod/frauddetector", {params:{
                 email_address: values.email,
                 ip_address: this.state.ip,
-                ssn: this.state.ssn
+                ssn: values.ssn
             }});            
             this.setState({loading: false, fdoutcome: res.data.body.outcomes[0], fdscore: res.data.body.score }, () => {
                 this.openNotificationWithIcon(values);
@@ -60,11 +60,11 @@ class Register extends React.Component {
             
             // this.openNotificationWithIcon(values);
             console.log("Response - ", res.data.body);
-            // if(res.data.id === 1){
-            //     this.props.history.push("/confirm");
-            // }else{
-            //     this.props.history.push("/success");
-            // }
+            if(res.status === 200){
+                this.props.history.push("/confirm");
+            }else{
+                this.props.history.push("/success");
+            }
         }catch(error){
             console.log(error);
         }
