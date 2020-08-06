@@ -24,7 +24,7 @@ function App() {
       <Layout className="layout">    
         <Header>
           <div className="logo">
-            <Title level={3} style={{color: '#fff' , paddingTop: '5%'}}>Octank Financial Services</Title>
+            <Title level={3} style={{color: '#fff' , paddingTop: '5%'}}>Anazon Financial Services</Title>
           </div>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} style={{float: 'right'}}>
             {/* <Menu.Item key="1">Admin</Menu.Item> */}
@@ -54,7 +54,7 @@ function App() {
           </Route>
         </Switch>
         <Footer style={{ textAlign: "center" }}>
-          Amazon Web Services ©2020 Created by Julie Lowery
+          Anazon Financial Services ©2020 Created by Julie Lowery
         </Footer>
       </Layout>
     </Router>
