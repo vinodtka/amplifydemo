@@ -23,7 +23,7 @@ class Error extends React.Component {
                         <Result
                             status="error"
                             title="Unable to complete registration!"
-                            subTitle="Please contact us at support@anazom.com"                            
+                            subTitle="Please contact us at support@anazon.com"                            
                         />
                       </div>            
                   </Col>
