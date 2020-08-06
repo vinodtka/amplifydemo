@@ -61,12 +61,18 @@ class Register extends React.Component {
             // this.openNotificationWithIcon(values);
             console.log("Response - ", res.data.body);
             if(res.status === 200){
-                this.props.history.push("/confirm");
+                if (res.data.body.outcomes[0] === "review")
+                    this.props.history.push("/confirm");
+                else if (res.data.body.outcomes[0] === "verify_customer"){
+                    this.props.history.push("/error");
+                }else
+                    this.props.history.push("/success");
             }else{
-                this.props.history.push("/success");
+                this.openNotificationOnError();
             }
         }catch(error){
             console.log(error);
+            this.openNotificationOnError();        
         }
     }
 
@@ -87,6 +93,19 @@ class Register extends React.Component {
                 <Text>IP: <Text code>{this.state.ip}</Text></Text><br/>
                 <Text>AFD Score: <Text code>{this.state.fdscore}</Text></Text><br/>
                 <Text>AFD Outcome: <Text code>{this.state.fdoutcome}</Text></Text><br/>
+            </>,
+            placement: 'bottomLeft',
+            duration: 0,
+            className: 'notifClass'
+        });
+      };
+
+      openNotificationOnError = () => {
+        notification.info({
+            message: 'Error encountered',
+            description:
+            <>                
+                <Text>Please contact system administrator</Text><br/>
             </>,
             placement: 'bottomLeft',
             duration: 0,
@@ -147,7 +166,7 @@ class Register extends React.Component {
                             // label="SSN"
                             name="ssn"                    
                             rules={[{ required: true, message: 'Please input your SSN!' }]}
-                            help="Digits, and - only "
+                            help="Digits only "
                           >
                             <Input placeholder="SSN" />
                           </Form.Item>
