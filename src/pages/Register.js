@@ -168,7 +168,7 @@ class Register extends React.Component {
                             rules={[{ required: true, message: 'Please input your SSN!' }]}
                             help="Digits only "
                           >
-                            <Input placeholder="SSN" />
+                            <Input.SSN prefix={<LockOutlined className="site-form-item-icon" />} placeholder="SSN" />
                           </Form.Item>
 
                           <Form.Item >
