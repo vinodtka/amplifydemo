@@ -54,7 +54,7 @@ function App() {
           </Route>
         </Switch>
         <Footer style={{ textAlign: "center" }}>
-          Anazon Financial Services ©2020 Created by Julie Lowery
+          Anazon Financial Services ©2020
         </Footer>
       </Layout>
     </Router>
